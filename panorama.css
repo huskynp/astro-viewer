@@ -1,0 +1,152 @@
+html{
+    margin:0;
+    height:100vh;
+    width:100vw;
+}
+body{
+    margin:0;
+    height:100vh;
+    width:100vw;
+}
+
+button{
+    cursor: pointer;
+}
+#panorama{
+    margin:0;
+    height:90vh;
+    border:none;
+}
+
+#menu{
+    height:10vh;
+    width:100vw;
+    background-color: darkgray;
+    display:flex;
+    justify-content: space-around;
+}
+
+#menu > button{
+    height:90%;
+    margin:.2em;
+    font-size:x-large;
+    padding:.5em;
+}
+
+#exploremenu{
+    position:absolute;
+    width:100vw;
+    height:100vh;
+    background-color: rgba(0,0,0,0.9);
+    top:0;
+    left:0;
+    z-index:21;
+}
+
+#search{
+    width:100%;
+    height:12%;
+    display:flex;
+    align-items:center;
+}
+
+#searchinput{
+    width:60%;
+    height:50%;
+    min-width:60%;
+    margin-left:2em;
+    margin-right:2em;
+    font-size:large;
+}
+
+#searchbut{
+    height:50%;
+    cursor: pointer;
+}
+
+.X{
+    background: none;
+    border:none;
+    color:white;
+    font-size:larger;
+    cursor: pointer;
+    margin-left:auto;
+    margin-right:0.5em;
+
+}
+
+#start{
+    width:100vw;
+    height:100vh;
+    background-image: url("bg.jpg");
+    background-color: rgb(0, 0, 0);
+    background-position: center;
+    background-repeat: no-repeat;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:2;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#startbut{
+    font-size:larger;
+    background-color: lightgreen;
+    border:none;
+    padding:1em;
+    cursor:pointer;
+}
+
+hr{
+    margin:0;
+}
+
+#exploremenu > .table{
+    width:100%;
+    height:87%;
+    min-height:87.5%;
+    overflow:scroll;
+    display: flex;
+    flex-direction: column;
+    overflow-x:hidden;
+}
+
+.menuItem{
+    height:15vh;
+    max-height:15vh;
+    min-height: 15vh;
+    width:100%;
+    background-position:center;
+    color:white;
+    font-family:"Arial";
+    display: flex;
+    align-items:center;
+    overflow:clip;
+    position:relative;
+}
+
+.menuItem > img{
+    width: clamp(100%, 100%, 100%);
+    height:15vh;
+    max-height:15vh;
+    object-fit: cover;
+    opacity:0.3;
+    position:absolute;
+    z-index:-1;
+}
+
+.menuItem > h2{
+    display: inline-block;
+    margin-left:3vh;
+    margin-right:auto;
+    max-width:50%;
+    text-overflow: ellipsis;
+}
+
+.menuItem > button{
+    margin-right:5vh;
+    height:2.5em;
+    width:10%;
+}
