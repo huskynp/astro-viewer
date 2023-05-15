@@ -77,10 +77,94 @@ addEventListener("deviceorientation", e => {
     };
 });
 
+const createGPS = (newRa, newDec) => {
+    aladin.removeLayers(); // remove any previous
+    const overlay = A.graphicOverlay({color:"red", lineWidth:2});
+    aladin.addOverlay(overlay);
+    overlay.add(A.polyline([[ra,dec], [newRa,newDec]]));
+}
+
+let dialogObjInfo = {
+    "name": "",
+    "imageSrc": "",
+    "dist": "",
+    "description": "",
+    "type": "",
+    "ra": 0,
+    "dec": 0,
+};
+
+const numberToWords = num => {
+    if(num === "unknown"){ return "unknown"; }
+
+    let suffix = "";
+    if(num > 1000000){ 
+        suffix = "million";
+        num /= 1000000;
+        if(num > 1000){ // 1000 mil = 1 bil
+            suffix = "billion";
+            num /= 1000;
+        }
+        if(num < 10){ // eg. 1.2 million
+            num = num.toFixed(1);
+        }else{ // eg. 24 million
+            num = Math.round(num);
+        }
+        return `${num} ${suffix}`;
+    }
+    if(num > 100){ // eg. 729,000
+        return Math.round(num).toLocaleString("en-US");
+    }
+    return num.toFixed(2).toString(); // eg. 4.27
+}
+
+const showInfoDialog = (objName, imgSrc, dist, desc, type, nra, ndec) => {
+    dialogObjInfo = {
+        "name": objName,
+        "imageSrc": imgSrc,
+        "dist": dist,
+        "description": desc,
+        "type": type,
+        "ra": nra,
+        "dec": ndec
+    };
+    $("#infodialog").prop("title", objName);
+    $("#dialog-img").prop("src", imgSrc);
+    $("#dialog-desc").text(desc);
+    $("#dialog-distance").text(`Distance to Earth: ${numberToWords(dist)} light years`);
+    $("#dialog-type").text(`Type: ${type}`);
+    $("#dialog-nav").off('click').on('click', e => {
+        e.preventDefault();
+        createGPS(nra, ndec);
+        $("#infodialog").dialog("close");
+        $("#exploremenu").hide(); // basically go back to main screen
+    });
+    $("#infodialog").dialog({closeText: "X", title:objName}).dialog("open");
+};
+
+import { cool_objects } from "./cool-objects.js";
+
+// add all cool objects to explore menu
+cool_objects.forEach((obj, i) => {
+    let html = `<div class="menuItem" id="${i}">
+    <img src="${obj.img}" />
+    <h2>${obj.name}</h2>
+    <button class="menuButton">Info</button>
+</div>`
+    $(".table").append(html);
+});
+
+$(".menuButton").on("click", function(){
+    let id = parseInt($(this).parent().prop("id"));
+    console.log($(this).parent());
+    let o = cool_objects[id];
+    showInfoDialog(o.name,o.img,o.dist,o.desc,o.type,o.ra,o.dec);
+})
+
 $("#startbut").prop("disabled", true);
 // $("#exploremenu").hide();
-$("#search>.X").click(() => {$("#exploremenu").fadeOut()});
-$("#explore").click(()=>{
+$("#search>.X").on("click", () => {$("#exploremenu").fadeOut()});
+$("#explore").on("click", ()=>{
     $("#exploremenu").fadeIn();
     pauseFunc(true);
 })
@@ -89,7 +173,7 @@ const config = {survey: "https://skies.esac.esa.int/DSSColor/", fov:70, cooFrame
 A.init.then(() => {
     console.log("STARTED");
     $("#startbut").prop("disabled", true);
-    //$("#startbut").click(e => {
+    //$("#startbut").on("click", e => {
     console.log("hi");
     $("#start").hide();
     $("#panorama").removeClass("#broken");

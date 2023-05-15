@@ -150,3 +150,43 @@ hr{
     height:2.5em;
     width:10%;
 }
+
+.ui-dialog{
+    z-index:100 !important;
+    background-color: black;
+    color:white;
+    border:1px white solid;
+    font-family:"Verdana";
+    display:flex;
+    flex-direction: column;
+    padding:1em;
+    gap:1em;
+    max-height:68%;
+}
+
+#dialog-img{
+    max-width:100%;
+    max-height:25%;
+    margin-bottom:2em;
+}
+
+
+.ui-dialog-titlebar{
+    display: flex;
+    justify-content: space-between;
+    font-weight:bold;
+    font-size:larger;
+    text-overflow:ellipsis;
+    margin-bottom:1em;
+}
+
+.ui-dialog-titlebar-close{
+    border: none;
+    background: none;
+    color: white;
+    cursor: pointer;
+}
+
+#dialog-desc{
+    font-size:smaller;
+}

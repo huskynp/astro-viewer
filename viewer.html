@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="panorama.css"/>
     <script type="text/javascript" src="https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.js" charset="utf-8"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
     <script src="quaternion.js"></script>
 </head>
 <body>
@@ -17,54 +18,15 @@
     <div id="exploremenu">
         <span id="search"><input id="searchinput" type="search"/> <button id="searchbut">Search</button> <button class="X">X</button></span>
         <hr/>
-        <div class="table">
-            <div class="menuItem">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Andromeda_Galaxy_%28with_h-alpha%29.jpg/1280px-Andromeda_Galaxy_%28with_h-alpha%29.jpg" />
-                    <h2>Andromeda Galaxy</h2>
-                    <button>Info</button>
-            </div>
-            <div class="menuItem">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Artist%27s_impression_of_the_planet_orbiting_Proxima_Centauri.jpg/1280px-Artist%27s_impression_of_the_planet_orbiting_Proxima_Centauri.jpg" />
-                <h2>Proxima Centauri</h2>
-                <button>Info</button>
-            </div>
-            <div class="menuItem">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Crab_Nebula.jpg/1024px-Crab_Nebula.jpg" />
-                <h2>Crab Nebula</h2>
-                <button>Info</button>
-            </div>
-            <div class="menuItem">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Hoag%27s_object.jpg" />
-                <h2>Hoag's Object</h2>
-                <button>Info</button>
-            </div>
-            <div class="menuItem">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sirius.jpg/1024px-Sirius.jpg" />
-                <h2>Sirius</h2>
-                <button>Info</button>
-            </div>
-            <div class="menuItem">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Barnard_33.jpg/1042px-Barnard_33.jpg" />
-                <h2>Horsehead Nebula</h2>
-                <button>Info</button>
-            </div>
-            <div class="menuItem">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Merging_galaxies_NGC_4676_%28captured_by_the_Hubble_Space_Telescope%29.jpg/1024px-Merging_galaxies_NGC_4676_%28captured_by_the_Hubble_Space_Telescope%29.jpg" />
-                <h2>Mice Galaxies</h2>
-                <button>Info</button>
-            </div>
-            <div class="menuItem">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Pleiades_large.jpg/1280px-Pleiades_large.jpg" />
-                <h2>The Pleiades</h2>
-                <button>Info</button>
-            </div>
-            <div class="menuItem">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Pillars_of_creation_2014_HST_WFC3-UVIS_full-res_denoised.jpg/1964px-Pillars_of_creation_2014_HST_WFC3-UVIS_full-res_denoised.jpg" />
-                <h2>Pillars of Creation</h2>
-                <button>Info</button>
-            </div>
-        </div>  
+        <div class="table"></div>  
     </div>
-    <script src="main.js"></script>
+    <div id="infodialog">
+        <img id="dialog-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Andromeda_Galaxy_%28with_h-alpha%29.jpg/1280px-Andromeda_Galaxy_%28with_h-alpha%29.jpg"/>
+        <i id="dialog-desc">The Andromeda Galaxy, also known as Messier 31, is a neighbor galaxy of the Milky Way. The galaxy was discovered more than a thousand years ago, and it has over a trillion stars. It is on a collision course with our Milky Way, and the two galaxies are expected to collide in around 5 billion years.</i>
+        <p id="dialog-distance">Distance to Earth: 2.5 million light years</p>
+        <p id="dialog-type">Type: Barred Spiral Galaxy</p>
+        <button id="dialog-nav">Find in Sky</button>
+    </div>
+    <script type="module" src="main.js"></script>
 </body>
 </html>
