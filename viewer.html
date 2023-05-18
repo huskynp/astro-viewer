@@ -14,18 +14,27 @@
 <body>
     <!-- <div id="start"><button id="startbut">Start?</button></div> -->
     <div id="panorama" class="broken"></div>
-    <div id="menu"><button id="explore">Explore</button><button id="pause">Pause</button><button id="help">?</button></div>
+    <div id="menu"><button id="explore">Explore</button><button id="pause">Pause</button><button id="help">?</button><button id="viewsbutton"><img src="eye.svg" style="color:black;"/></button></div>
     <div id="exploremenu">
         <span id="search"><input id="searchinput" type="search"/> <button id="searchbut">Search</button> <button class="X">X</button></span>
         <hr/>
         <div class="table"></div>  
     </div>
     <div id="infodialog">
-        <img id="dialog-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Andromeda_Galaxy_%28with_h-alpha%29.jpg/1280px-Andromeda_Galaxy_%28with_h-alpha%29.jpg"/>
-        <i id="dialog-desc">The Andromeda Galaxy, also known as Messier 31, is a neighbor galaxy of the Milky Way. The galaxy was discovered more than a thousand years ago, and it has over a trillion stars. It is on a collision course with our Milky Way, and the two galaxies are expected to collide in around 5 billion years.</i>
-        <p id="dialog-distance">Distance to Earth: 2.5 million light years</p>
-        <p id="dialog-type">Type: Barred Spiral Galaxy</p>
+        <img id="dialog-img" src=""/>
+        <i id="dialog-desc"></i>
+        <p id="dialog-distance"></p>
+        <p id="dialog-type"></p>
         <button id="dialog-nav">Find in Sky</button>
+    </div>
+    <div id="viewDialog" title="View Options">
+        <select name="views" id="views">
+            <option value="https://skies.esac.esa.int/DSSColor/" selected>DSS2 (default, medium-res, full sky)</option>
+            <option value="https://skies.esac.esa.int/SDSS9Color">SDSS9 (high-res, only partial sky)</option>
+            <option value="https://alaskybis.cds.unistra.fr/Pan-STARRS/DR1/color-i-r-g">Pan-STARRS DR1 (high-res, glitchy, most of sky)</option>
+        </select>
+        <button id="clearlinesbutton">Clear Lines</button>
+        <button id="updateviewsbutton">Update</button>
     </div>
     <script type="module" src="main.js"></script>
 </body>

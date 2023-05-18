@@ -190,3 +190,16 @@ hr{
 #dialog-desc{
     font-size:smaller;
 }
+
+#views{
+    max-width:90%;
+    height:2rem;
+}
+
+.viewDialog{
+    height:20% !important;
+}
+
+#updateviewsbutton{
+    margin-top: 5rem;
+}

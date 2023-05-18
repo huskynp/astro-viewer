@@ -162,12 +162,32 @@ $(".menuButton").on("click", function(){
 })
 
 $("#startbut").prop("disabled", true);
-// $("#exploremenu").hide();
-$("#search>.X").on("click", () => {$("#exploremenu").fadeOut()});
+$("#exploremenu").hide();
+$("#search>.X").on("click", () => {
+    $("#exploremenu").fadeOut()
+    pauseFunc(false);
+});
 $("#explore").on("click", ()=>{
     $("#exploremenu").fadeIn();
     pauseFunc(true);
 })
+$("#infodialog").dialog({autoOpen:false})
+$("#viewDialog").dialog({autoOpen:false})
+$("#viewsbutton").click(() => {
+    $("#viewDialog").dialog({closeText: "X", classes: {"ui-dialog": "viewDialog"}, close: () => {pauseFunc(false)}}).dialog("open");
+    pauseFunc(true);
+});
+
+$("#clearlinesbutton").click(() => {
+    aladin.removeLayers();
+});
+
+$("#updateviewsbutton").click(() => {
+    let survey = $("#views").val();
+    console.log(survey);
+    aladin.setBaseImageLayer(aladin.newImageSurvey(survey));
+    $("#viewDialog").dialog("close");
+});
 
 const config = {survey: "https://skies.esac.esa.int/DSSColor/", fov:70, cooFrame:"ICRSd", showReticle:false,showProjectionControl:false,showZoomControl:false,showFullscreenControl:false,showLayersControl:false,showGotoControl:false,showFrame:false}
 A.init.then(() => {
