@@ -192,7 +192,8 @@ $("#updateviewsbutton").click(() => {
 const config = {survey: "https://skies.esac.esa.int/DSSColor/", fov:70, cooFrame:"ICRSd", showReticle:false,showProjectionControl:false,showZoomControl:false,showFullscreenControl:false,showLayersControl:false,showGotoControl:false,showFrame:false}
 A.init.then(() => {
     //console.log("STARTED");
-    $("#startbut").prop("disabled", true);
+    $("#startbut").prop("disabled", false);
+    $("#startbut").text("Start 🚀");
     $("#startbut").on("click", e => {
         $("#start").hide();
         $("#panorama").removeClass("#broken");
