@@ -70,7 +70,7 @@ addEventListener("deviceorientation", e => {
         let ddec = y - dec;
         ra += dra * moveSpeed(fov);
         dec += ddec * moveSpeed(fov);
-        console.log(dra, ddec, ra, dec, fov);
+        //console.log(dra, ddec, ra, dec, fov);
         
         aladin.gotoRaDec(ra,dec);
         //$("#angle").text(`${x} ${y}`);
@@ -156,7 +156,7 @@ cool_objects.forEach((obj, i) => {
 
 $(".menuButton").on("click", function(){
     let id = parseInt($(this).parent().prop("id"));
-    console.log($(this).parent());
+    //console.log($(this).parent());
     let o = cool_objects[id];
     showInfoDialog(o.name,o.img,o.dist,o.desc,o.type,o.ra,o.dec);
 })
@@ -184,22 +184,21 @@ $("#clearlinesbutton").click(() => {
 
 $("#updateviewsbutton").click(() => {
     let survey = $("#views").val();
-    console.log(survey);
+    //console.log(survey);
     aladin.setBaseImageLayer(aladin.newImageSurvey(survey));
     $("#viewDialog").dialog("close");
 });
 
 const config = {survey: "https://skies.esac.esa.int/DSSColor/", fov:70, cooFrame:"ICRSd", showReticle:false,showProjectionControl:false,showZoomControl:false,showFullscreenControl:false,showLayersControl:false,showGotoControl:false,showFrame:false}
 A.init.then(() => {
-    console.log("STARTED");
+    //console.log("STARTED");
     $("#startbut").prop("disabled", true);
-    //$("#startbut").on("click", e => {
-    console.log("hi");
-    $("#start").hide();
-    $("#panorama").removeClass("#broken");
-    aladin = A.aladin('#panorama', config);
-    aladin.setProjection("AIT");
-    aladin.setFovRange(0,10);
-    if (typeof DeviceOrientationEvent.requestPermission === 'function') {DeviceOrientationEvent.requestPermission();}
-    //});
+    $("#startbut").on("click", e => {
+        $("#start").hide();
+        $("#panorama").removeClass("#broken");
+        aladin = A.aladin('#panorama', config);
+        aladin.setProjection("AIT");
+        aladin.setFovRange(0,10);
+        if (typeof DeviceOrientationEvent.requestPermission === 'function') {DeviceOrientationEvent.requestPermission();}
+    });
 });
