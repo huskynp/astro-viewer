@@ -79,7 +79,16 @@ const cool_objects = [
         "type":"Nebula Formation",
         "ra":18.314686,
         "dec":-12.150919,
-    }
+    },
+    {
+        "name":"Galactic Center",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Galactic_Center_%28Chandra%2C_Hubble%2C_Spitzer%29_%282021-053-01FJHQEC71T0CF7KTRGDYAKBYJ%29.png/1280px-Galactic_Center_%28Chandra%2C_Hubble%2C_Spitzer%29_%282021-053-01FJHQEC71T0CF7KTRGDYAKBYJ%29.png",
+        "desc":`At the center of our Milky Way Galaxy is a supermassive black hole known as Sagittarius A. This black hole has the mass of millions of suns, and has millions of stars and a lot of interstellar dust orbiting it. It can be seen clearly in x-ray view.`,
+        "dist":26670,
+        "type":"Supermassive Black Hole",
+        "ra":266.41681662,
+        "dec":-29.00782497,
+    },
 ]
 
 export {cool_objects}
