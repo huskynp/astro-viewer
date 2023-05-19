@@ -77,8 +77,8 @@ const cool_objects = [
         "desc":`Three large pillars of gas in the Eagle Nebula. The largest one is 4 light years tall. The Pillars of Creation are named because they're regions of intense star formation. It's possible the pillars have been destroyed by a supernova, but the light from such an event would take 7,000 years to reach us.`,
         "dist":7000.0,
         "type":"Nebula Formation",
-        "ra":18.314686,
-        "dec":-12.150919,
+        "ra":274.6880,
+        "dec":-13.7920,
     },
     {
         "name":"Galactic Center",
