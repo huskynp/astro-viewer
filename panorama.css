@@ -1,26 +1,31 @@
 html{
     margin:0;
-    height:100vh;
-    width:100vw;
+    height:100dvh;
+    width:100dvw;
 }
 body{
     margin:0;
-    height:100vh;
-    width:100vw;
+    height:100dvh;
+    width:100dvw;
 }
 
 button{
     cursor: pointer;
+    color:black;
+}
+button, select{
+    -webkit-appearance: none;
+    border-radius:0;
 }
 #panorama{
     margin:0;
-    height:90vh;
+    height:90dvh;
     border:none;
 }
 
 #menu{
-    height:10vh;
-    width:100vw;
+    height:10dvh;
+    width:100dvw;
     background-color: darkgray;
     display:flex;
     justify-content: space-around;
@@ -35,8 +40,8 @@ button{
 
 #exploremenu{
     position:absolute;
-    width:100vw;
-    height:100vh;
+    width:100dvw;
+    height:100dvh;
     background-color: rgba(0,0,0,0.9);
     top:0;
     left:0;
@@ -44,7 +49,7 @@ button{
 }
 
 #search{
-    width:100%;
+    width:100dvw;
     height:12%;
     display:flex;
     align-items:center;
@@ -54,7 +59,7 @@ button{
     width:60%;
     height:50%;
     min-width:60%;
-    margin-left:2em;
+    margin-left:0.25em;
     margin-right:2em;
     font-size:large;
 }
@@ -76,8 +81,8 @@ button{
 }
 
 #start{
-    width:100vw;
-    height:100vh;
+    width:100dvw;
+    height:100dvh;
     background-image: url("bg.jpg");
     background-color: rgb(0, 0, 0);
     background-position: right;
@@ -114,9 +119,9 @@ hr{
 }
 
 .menuItem{
-    height:15vh;
-    max-height:15vh;
-    min-height: 15vh;
+    height:15dvh;
+    max-height:15dvh;
+    min-height: 15dvh;
     width:100%;
     background-position:center;
     color:white;
@@ -129,8 +134,8 @@ hr{
 
 .menuItem > img{
     width: clamp(100%, 100%, 100%);
-    height:15vh;
-    max-height:15vh;
+    height:15dvh;
+    max-height:15dvh;
     object-fit: cover;
     opacity:0.3;
     position:absolute;
@@ -139,14 +144,14 @@ hr{
 
 .menuItem > h2{
     display: inline-block;
-    margin-left:3vh;
+    margin-left:3dvh;
     margin-right:auto;
     max-width:50%;
     text-overflow: ellipsis;
 }
 
 .menuItem > button{
-    margin-right:5vh;
+    margin-right:5dvh;
     height:2.5em;
     width:10%;
 }
@@ -160,14 +165,23 @@ hr{
     display:flex;
     flex-direction: column;
     padding:1em;
-    gap:1em;
+    /* gap:1em; */
     max-height:68%;
+    min-height:30%;
+}
+
+.ui-dialog-content{
+    overflow:scroll;
 }
 
 #dialog-img{
     max-width:100%;
-    max-height:25%;
+    max-height:25dvh;
     margin-bottom:2em;
+}
+
+#dialog-desc{
+
 }
 
 

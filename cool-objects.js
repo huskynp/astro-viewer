@@ -20,7 +20,7 @@ const cool_objects = [
     {
         "name":"Crab Nebula",
         "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Crab_Nebula.jpg/1024px-Crab_Nebula.jpg",
-        "desc":"Also known as Messier 1. A nebula that is the remains of a Supernova which was observed on Earth in 1054 CE. At the center of the nebula is a pulsar, a rapidly spinning core of a dead star.",
+        "desc":"Also known as Messier 1. A nebula that is the remains of a Supernova which was observed on Earth in 1054 CE. At the center of the nebula is a pulsar, a rapidly spinning core of a dead star. Looks amazing in x-ray!",
         "dist":6500.0,
         "type":"Supernova Remnant",
         "ra":83.6287,

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css" />
+    <title>astroviewer | About</title>
+</head>
+<body>
+    <h1>astroviewer - A telescope in your phone</h1>
+    <a href="viewer.html">Explore the Stars</a>
+    <br/>
+    <p>Controls: Move your phone around to explore. Pinch to zoom and rotate. Works best on a phone!<br/>Uses the Aladin API, and data from various sky surveys.</p>
+    <br/>
+    <br/>
+    <p>Space is pretty huge. And pretty pretty. There's tons of amazing objects to look at, from our neighbor galaxies to oddly-shaped nebulas. But it's impossible at home to appreciate the beauty of the stars and galaxies near us (especially in light-polluted cities). This site allows you to gaze the sky from the perspective of the most advanced telescopes and sky surveys humanity has ever created.</p>
+    <img height="400px" width="400px" id="apod-img" src="https://cdn.spacetelescope.org/archives/images/thumb700x/opo0118c.jpg"><br/>
+    <i id="apod-name">An image of the Rosette Nebula.</i>
+    <br/>
+    <i>Source: NASA Picture of the Day</i>
+    <br/><br/>
+    <img height="300" width="600" src="https://upload.wikimedia.org/wikipedia/commons/0/00/Center_of_the_Milky_Way_Galaxy_IV_%E2%80%93_Composite.jpg"/><br/>
+    <i>The center of our galaxy.</i>
+    <script>
+        let http = new XMLHttpRequest();
+        http.onreadystatechange = () => {
+            if (http.readyState == 4 && http.status == 200){
+                let res = JSON.parse(http.responseText);
+                console.log(res);
+                document.getElementById("apod-img").src=res.hdurl;
+                document.getElementById("apod-name").innerHTML = res.title;
+            }
+        }
+        http.open("GET", "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY", true);
+        http.send(null);
+    </script>
+</body>
+</html>

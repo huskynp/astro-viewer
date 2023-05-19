@@ -1,4 +1,4 @@
-let aladin;
+let aladin = null;
 
 const limitFov = fov => {
     if(fov[0]>70){
@@ -56,11 +56,12 @@ const pauseFunc = (val=null) => {
 $("#pause").click(() => {pauseFunc()});
 
 addEventListener("deviceorientation", e => {
-    if(!aladin){return;} // not ready yet
+    if(aladin === null){return;} // not ready yet
+    console.log("HI");  
     let fov = aladin.getFov();
     fov = limitFov(fov);
 
-    if(paused){
+    if(!paused){
         const angles = orientationToAngles(e);
         const x = (180/Math.PI)*angles.h;
         const y = ((180/Math.PI)*angles.g) - 90;
@@ -138,6 +139,7 @@ const showInfoDialog = (objName, imgSrc, dist, desc, type, nra, ndec) => {
         createGPS(nra, ndec);
         $("#infodialog").dialog("close");
         $("#exploremenu").hide(); // basically go back to main screen
+        pauseFunc(false);
     });
     $("#infodialog").dialog({closeText: "X", title:objName}).dialog("open");
 };
@@ -187,6 +189,17 @@ $("#updateviewsbutton").click(() => {
     //console.log(survey);
     aladin.setBaseImageLayer(aladin.newImageSurvey(survey));
     $("#viewDialog").dialog("close");
+});
+
+$("#scbutton").click(async () => {
+    const imgPromise = async () => {
+        let str = await aladin.getViewDataURL();
+        return await (await fetch(str)).blob();
+    };
+    let copy = [new ClipboardItem({["image/png"]:imgPromise()})];
+    navigator.clipboard.write(copy);
+    $("#scbutton").text("Copied!");
+    setTimeout(() => { $("#scbutton").text("Take picture of current view"); }, 1000);
 });
 
 const config = {survey: "https://skies.esac.esa.int/DSSColor/", fov:70, cooFrame:"ICRSd", showReticle:false,showProjectionControl:false,showZoomControl:false,showFullscreenControl:false,showLayersControl:false,showGotoControl:false,showFrame:false}
