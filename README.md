@@ -8,7 +8,7 @@ Ever wanted to view the night sky like never before? Astroviewer gives you the p
 - View different sky surveys (optical, infrared, x-ray, etc.)
 - Save a view as an image
 
-## Pictures
+## Screenshots
 
 ![Crab Nebula](https://i.imgur.com/sCGbLjNl.png)
 ![Explore Menu](https://i.imgur.com/08FD3tTl.png)
