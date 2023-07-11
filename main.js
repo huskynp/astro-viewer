@@ -165,6 +165,30 @@ $(".menuButton").on("click", function(){
 
 $("#startbut").prop("disabled", true);
 $("#exploremenu").hide();
+
+const search = () => {
+    $("#searchbut").prop("disabled",true);
+    $("#searchbut").text("...");
+    let obj = $("#searchinput").val();
+    if(obj === "") return;
+    aladin.gotoObject(obj, {success: pos => {
+        aladin.gotoRaDec(ra, dec);
+        createGPS(pos[0], pos[1]);
+        $("#exploremenu").fadeOut();
+        $("#searchbut").text("Search");
+        $("#searchbut").prop("disabled",false);
+    }, 
+    error: () => {
+        $("#searchbut").prop("disabled",false);
+        alert(`Can't find an object named "${obj}".`);
+    }});
+}
+
+$("#searchbut").on("click", search);
+$("#searchform").submit(e => {
+    search();
+    return false;
+});
 $("#search>.X").on("click", () => {
     $("#exploremenu").fadeOut()
     pauseFunc(false);

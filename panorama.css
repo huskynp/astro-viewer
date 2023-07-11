@@ -55,12 +55,15 @@ button, select{
     align-items:center;
 }
 
-#searchinput{
-    width:60%;
-    height:50%;
+#searchform{
     min-width:60%;
     margin-left:0.25em;
     margin-right:2em;
+}
+
+#searchinput{
+    width:100%;
+    height:50%;
     font-size:large;
 }
 

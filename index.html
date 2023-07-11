@@ -12,28 +12,32 @@
     <h1>astroviewer - A telescope in your phone</h1>
     <a href="viewer.html">Explore the Stars</a>
     <br/>
-    <p>Controls: Move your phone around to explore. Pinch to zoom and rotate. Works best on a phone!<br/>Uses the Aladin API, and data from various sky surveys. Not meant to align with the real sky.</p>
+    <p>Controls: Move your phone around to explore. Pinch to zoom and rotate. Works best on a phone!<br/>Uses the <a href="https://aladin.cds.unistra.fr/">Aladin API</a>, and data from various sky surveys. Not meant to align with the real sky.</p>
     <br/>
     <br/>
     <p>Space is pretty huge. And pretty pretty. There's tons of amazing objects to look at, from our neighbor galaxies to oddly-shaped nebulas. But it's impossible at home to appreciate the beauty of the stars and galaxies near us (especially in light-polluted cities). This site allows you to gaze the sky from the perspective of the most advanced telescopes and sky surveys humanity has ever created.</p>
-    <img height="400px" width="400px" id="apod-img" src="https://cdn.spacetelescope.org/archives/images/thumb700x/opo0118c.jpg"><br/>
-    <i id="apod-name">An image of the Rosette Nebula.</i>
+    <img height="400px" width="400px" id="apod-img" src=""><br/>
+    <i id="apod-name"></i>
     <br/>
     <i>Source: NASA Picture of the Day</i>
     <br/><br/>
-    <img height="300" width="600" src="https://upload.wikimedia.org/wikipedia/commons/0/00/Center_of_the_Milky_Way_Galaxy_IV_%E2%80%93_Composite.jpg"/><br/>
+    <img height="300" width="600" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Center_of_the_Milky_Way_Galaxy_IV_%E2%80%93_Composite.jpg/1280px-Center_of_the_Milky_Way_Galaxy_IV_%E2%80%93_Composite.jpg"/><br/>
     <i>The center of our galaxy.</i>
     <br/><br/>
-    <a href="https://github.com/huskynp">made by huskynp</a>
+    <a href="https://github.com/huskynp/astro-viewer">github - made by huskynp</a>
     <script>
         let http = new XMLHttpRequest();
+        let picSrc = "https://cdn.spacetelescope.org/archives/images/thumb700x/opo0118c.jpg";
+        let picName = "An image of the Rosette Nebula."
         http.onreadystatechange = () => {
             if (http.readyState == 4 && http.status == 200){
                 let res = JSON.parse(http.responseText);
                 console.log(res);
-                document.getElementById("apod-img").src=res.hdurl;
-                document.getElementById("apod-name").innerHTML = res.title;
+                picSrc = res.hdurl;
+                picName = res.title;
             }
+            document.getElementById("apod-img").src=picSrc;
+            document.getElementById("apod-name").innerHTML = picName;
         }
         http.open("GET", "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY", true);
         http.send(null);
