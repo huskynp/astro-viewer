@@ -29,7 +29,7 @@
         <button id="dialog-nav">Find in Sky</button>
     </div>
     <div id="viewDialog" title="View Options">
-        <select name="views" id="views">
+        <select name="views" id="views" class="surveyoptions">
             <option value="https://skies.esac.esa.int/DSSColor/" selected>DSS2 (default, medium-res, full sky)</option>
             <option value="https://skies.esac.esa.int/SDSS9Color">SDSS9 (high-res, only partial sky)</option>
             <option value="https://alaskybis.cds.unistra.fr/Pan-STARRS/DR1/color-i-r-g">Pan-STARRS DR1 (high-res, glitchy, most of sky)</option>
@@ -37,6 +37,11 @@
             <option value="https://alasky.cds.unistra.fr/2MASS/Color">2MASS (infrared, medium-res)</option>
             <option value="https://alasky.cds.unistra.fr/AKARI-FIS/ColorLSN60">AKARI FIS (infrared, medium-res)</option>
             <option value="http://skies.esac.esa.int/Chandra/cxc.harvard.edu_P_cda_hips_field_0.039_13.938_rgb">Chandra (x-ray, high-res, parts of sky)</option>
+        </select>
+        <select name="overlay" id="overlay" class="surveyoptions">
+            <option value="">No overlay selected</option>
+            <option value="https://alasky.cds.unistra.fr/HST-outreach/CDS_P_HST_EPO/">Hubble Space Telescope Images</option>
+            <option value="https://alasky.cds.unistra.fr/JWST/CDS_P_JWST_First_Images/">JWST's First Images</option>
         </select>
         <button id="clearlinesbutton">Clear Lines</button>
         <button id="updateviewsbutton">Update</button>

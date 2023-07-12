@@ -89,6 +89,24 @@ const cool_objects = [
         "ra":266.41681662,
         "dec":-29.00782497,
     },
+    {
+        "name": "JWST Ultra Deep Field",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Webb%27s_First_Deep_Field.jpg/1003px-Webb%27s_First_Deep_Field.jpg",
+        "desc": `The famous "deep field" image, first taken by Hubble Space Telescope, then JWST. Features galaxies over 4 billion light years away (and 4 billion light years old). Turn on JWST or Hubble overlay to see the deep field!`,
+        "dist": 4000000000,
+        "type": "Galaxy Cluster",
+        "ra":110.8212832,
+        "dec":-73.4394103
+    },
+    {
+        "name": "Big Dipper",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Big_Dipper_in_Spring_%28ann22042c-spring%29.jpg/1280px-Big_Dipper_in_Spring_%28ann22042c-spring%29.jpg",
+        "desc": `One of the most famous features in the sky, in the constellation Ursa Major. It's made up of 7 bright stars. Big brother to the Little Dipper.`,
+        "dist": 80 ,
+        "type": "Constellation",
+        "ra":189.5991116,
+        "dec":56.2513086
+    },
 ]
 
 export {cool_objects}

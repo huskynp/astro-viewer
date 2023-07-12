@@ -208,9 +208,10 @@ hr{
     font-size:smaller;
 }
 
-#views{
+.surveyoptions{
     max-width:90%;
     height:2rem;
+    margin-bottom:1rem;
 }
 
 .viewDialog{

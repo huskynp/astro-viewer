@@ -175,6 +175,7 @@ const search = () => {
         aladin.gotoRaDec(ra, dec);
         createGPS(pos[0], pos[1]);
         $("#exploremenu").fadeOut();
+        pauseFunc(false);
         $("#searchbut").text("Search");
         $("#searchbut").prop("disabled",false);
     }, 
@@ -210,8 +211,9 @@ $("#clearlinesbutton").click(() => {
 
 $("#updateviewsbutton").click(() => {
     let survey = $("#views").val();
-    //console.log(survey);
+    let overlay = $("#overlay").val();
     aladin.setBaseImageLayer(aladin.newImageSurvey(survey));
+    aladin.setOverlayImageLayer(aladin.newImageSurvey(overlay, "Overlay"));
     $("#viewDialog").dialog("close");
 });
 
