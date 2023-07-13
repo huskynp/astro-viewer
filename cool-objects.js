@@ -107,6 +107,24 @@ const cool_objects = [
         "ra":189.5991116,
         "dec":56.2513086
     },
+    {
+        "name": "Supernova Remnant 0509",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Supernova_SNR_B0509-67.5.jpg",
+        "desc": `The remains of a powerful supernova. Likely caused by a collision between a white dwarf and another star. Viewed with Hubble Space Telescope overlay.`,
+        "dist": 160000,
+        "type": "Supernova Remnant",
+        "ra":77.3798195,
+        "dec":-67.5213518
+    },
+    {
+        "name": "Supernova 1987A",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/c/c8/New_Hubble_Observations_of_Supernova_1987A_Trace_Shock_Wave_%284954621859%29.jpg",
+        "desc": `An ongoing supernova, caused by the death of a star. Supernovas create heavier elements such as gold. See it with Hubble Space Telescope overlay.`,
+        "dist": 168000,
+        "type": "Supernova",
+        "ra":83.8655086,
+        "dec": -69.2703338
+    },
 ]
 
 export {cool_objects}

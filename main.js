@@ -212,7 +212,8 @@ $("#clearlinesbutton").click(() => {
 $("#updateviewsbutton").click(() => {
     let survey = $("#views").val();
     let overlay = $("#overlay").val();
-    aladin.setBaseImageLayer(aladin.newImageSurvey(survey));
+    if(overlay === "none") overlay = survey;
+    aladin.setBaseImageLayer(aladin.newImageSurvey(survey, "survey"));
     aladin.setOverlayImageLayer(aladin.newImageSurvey(overlay, "Overlay"));
     $("#viewDialog").dialog("close");
 });
